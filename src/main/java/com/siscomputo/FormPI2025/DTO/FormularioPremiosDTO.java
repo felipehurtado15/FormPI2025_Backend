@@ -4,6 +4,9 @@
  */
 package com.siscomputo.FormPI2025.DTO;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.web.multipart.MultipartFile;
 
 /**
@@ -66,6 +69,49 @@ public class FormularioPremiosDTO {
     private Boolean datos; // Checkbox de uso de datos
 
     private MultipartFile file;
+    
+    
+    // Datos de para la segunda sección de preguntas
+    // Pregunta 11
+    private String dimensionBienestar;
+
+    // Pregunta 12 - Checkboxes
+    private boolean empleados;
+    private boolean aprendices;
+    private boolean familias;
+    private boolean proveedores;
+    private boolean comunidad;
+    private boolean otroGrupoBienestar;
+    private String otroGrupoBienestarTexto;
+
+    // Pregunta 13
+    private String impactoPersonas;
+
+    // Pregunta 14
+    private String razonesBienestar;
+
+    // Pregunta 15
+    private String nombreEstrategiaBienestar;
+
+    // Pregunta 16
+    private String descripcionEstrategia;
+
+    // Pregunta 17
+    private String tiempoYArticulacion;
+
+    // Pregunta 18 - Radio buttons
+    private String documentadaBienestar; // valores posibles: "SI", "NO"
+
+    // Pregunta 19
+    private String accionesImpacto;
+
+    // Pregunta 20
+    private String logrosBienestar;
+
+    // Pregunta 21 - Radio buttons
+    private String reconocidaBienestar; // valores posibles: "SI", "NO"
+    private String detalleReconocimientoBienestar;
+    
 
     public String getNombreOrganizacion() {
         return nombreOrganizacion;
@@ -394,5 +440,214 @@ public class FormularioPremiosDTO {
     public void setFile(MultipartFile file) {
         this.file = file;
     }
+
+	public String getDimensionBienestar() {
+		return dimensionBienestar;
+	}
+
+	public void setDimensionBienestar(String dimensionBienestar) {
+		this.dimensionBienestar = dimensionBienestar;
+	}
+
+	public boolean isEmpleados() {
+		return empleados;
+	}
+
+	public void setEmpleados(boolean empleados) {
+		this.empleados = empleados;
+	}
+
+	public boolean isAprendices() {
+		return aprendices;
+	}
+
+	public void setAprendices(boolean aprendices) {
+		this.aprendices = aprendices;
+	}
+
+	public boolean isFamilias() {
+		return familias;
+	}
+
+	public void setFamilias(boolean familias) {
+		this.familias = familias;
+	}
+
+	public boolean isProveedores() {
+		return proveedores;
+	}
+
+	public void setProveedores(boolean proveedores) {
+		this.proveedores = proveedores;
+	}
+
+	public boolean isComunidad() {
+		return comunidad;
+	}
+
+	public void setComunidad(boolean comunidad) {
+		this.comunidad = comunidad;
+	}
+
+	public boolean isOtroGrupoBienestar() {
+		return otroGrupoBienestar;
+	}
+
+	public void setOtroGrupoBienestar(boolean otroGrupoBienestar) {
+		this.otroGrupoBienestar = otroGrupoBienestar;
+	}
+
+	public String getOtroGrupoBienestarTexto() {
+		return otroGrupoBienestarTexto;
+	}
+
+	public void setOtroGrupoBienestarTexto(String otroGrupoBienestarTexto) {
+		this.otroGrupoBienestarTexto = otroGrupoBienestarTexto;
+	}
+
+	public String getImpactoPersonas() {
+		return impactoPersonas;
+	}
+
+	public void setImpactoPersonas(String impactoPersonas) {
+		this.impactoPersonas = impactoPersonas;
+	}
+
+	public String getRazonesBienestar() {
+		return razonesBienestar;
+	}
+
+	public void setRazonesBienestar(String razonesBienestar) {
+		this.razonesBienestar = razonesBienestar;
+	}
+
+	public String getNombreEstrategiaBienestar() {
+		return nombreEstrategiaBienestar;
+	}
+
+	public void setNombreEstrategiaBienestar(String nombreEstrategiaBienestar) {
+		this.nombreEstrategiaBienestar = nombreEstrategiaBienestar;
+	}
+
+	public String getDescripcionEstrategia() {
+		return descripcionEstrategia;
+	}
+
+	public void setDescripcionEstrategia(String descripcionEstrategia) {
+		this.descripcionEstrategia = descripcionEstrategia;
+	}
+
+	public String getTiempoYArticulacion() {
+		return tiempoYArticulacion;
+	}
+
+	public void setTiempoYArticulacion(String tiempoYArticulacion) {
+		this.tiempoYArticulacion = tiempoYArticulacion;
+	}
+
+	public String getDocumentadaBienestar() {
+		return documentadaBienestar;
+	}
+
+	public void setDocumentadaBienestar(String documentadaBienestar) {
+		this.documentadaBienestar = documentadaBienestar;
+	}
+
+	public String getAccionesImpacto() {
+		return accionesImpacto;
+	}
+
+	public void setAccionesImpacto(String accionesImpacto) {
+		this.accionesImpacto = accionesImpacto;
+	}
+
+	public String getLogrosBienestar() {
+		return logrosBienestar;
+	}
+
+	public void setLogrosBienestar(String logrosBienestar) {
+		this.logrosBienestar = logrosBienestar;
+	}
+
+	public String getReconocidaBienestar() {
+		return reconocidaBienestar;
+	}
+
+	public void setReconocidaBienestar(String reconocidaBienestar) {
+		this.reconocidaBienestar = reconocidaBienestar;
+	}
+
+	public String getDetalleReconocimientoBienestar() {
+		return detalleReconocimientoBienestar;
+	}
+
+	public void setDetalleReconocimientoBienestar(String detalleReconocimientoBienestar) {
+		this.detalleReconocimientoBienestar = detalleReconocimientoBienestar;
+	}
+
+	public Boolean getConflicto() {
+		return conflicto;
+	}
+
+	public Boolean getDiscapacidad() {
+		return discapacidad;
+	}
+
+	public Boolean getMujeres() {
+		return mujeres;
+	}
+
+	public Boolean getJovenes() {
+		return jovenes;
+	}
+
+	public Boolean getMigrantes() {
+		return migrantes;
+	}
+
+	public Boolean getLgbtiq() {
+		return lgbtiq;
+	}
+
+	public Boolean getOtroGrupo() {
+		return otroGrupo;
+	}
+
+	public Boolean getDatos() {
+		return datos;
+	}
+	
+	// Opciones en la pregunta 12 RV
+	public String obtenerGruposSeleccionados() {
+	    List<String> grupos = new ArrayList<>();
+
+	    if (isEmpleados()) {
+	        grupos.add("Empleados");
+	    }
+	    if (isAprendices()) {
+	        grupos.add("Aprendices");
+	    }
+	    if (isFamilias()) {
+	        grupos.add("Familias");
+	    }
+	    if (isProveedores()) {
+	        grupos.add("Proveedores");
+	    }
+	    if (isComunidad()) {
+	        grupos.add("Comunidad");
+	    }
+	    if (isOtroGrupoBienestar() && getOtroGrupoBienestarTexto() != null && !getOtroGrupoBienestarTexto().isEmpty()) {
+	        grupos.add(getOtroGrupoBienestarTexto());
+	    }
+
+	    return String.join(", ", grupos);
+	}
+	
+	public String obtenerReconocimientoBienestar() {
+	    if ("SI".equalsIgnoreCase(getReconocidaBienestar()) && getDetalleReconocimientoBienestar() != null && !getDetalleReconocimientoBienestar().isEmpty()) {
+	        return getDetalleReconocimientoBienestar();
+	    }
+	    return "NO";
+	}
 
 }
