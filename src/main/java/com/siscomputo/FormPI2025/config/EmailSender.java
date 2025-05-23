@@ -39,11 +39,11 @@ public class EmailSender {
             // Crear el mensaje
             Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress(remitente));
-            message.addRecipient(Message.RecipientType.TO, new InternetAddress(destinatario)); // Quitar despues
-            message.addRecipient(Message.RecipientType.BCC, new InternetAddress(remitente));
-           /* message.addRecipient(Message.RecipientType.BCC, new InternetAddress("mariana.arroyave@comfenalcoantioquia.com "));
+          //  message.addRecipient(Message.RecipientType.TO, new InternetAddress(destinatario)); // Quitar despues
+            message.addRecipient(Message.RecipientType.TO, new InternetAddress(remitente));
+            message.addRecipient(Message.RecipientType.BCC, new InternetAddress("mariana.arroyave@comfenalcoantioquia.com "));
             message.addRecipient(Message.RecipientType.BCC, new InternetAddress("diego.cadavid@comfenalcoantioquia.com"));
-            message.addRecipient(Message.RecipientType.BCC, new InternetAddress("manuela.marin@comfenalcoantioquia.com")); */
+            message.addRecipient(Message.RecipientType.BCC, new InternetAddress("manuela.marin@comfenalcoantioquia.com"));
             message.setSubject(asunto);
 
             // Parte HTML
