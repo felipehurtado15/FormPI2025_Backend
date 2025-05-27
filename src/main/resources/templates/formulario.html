@@ -24,9 +24,9 @@
 			padding-top: 20px;
 			padding-bottom: 40px;
 		}
-		
+
 		i.bi.text-primary {
-		  color: var(--primary-color) !important;
+			color: var(--primary-color) !important;
 		}
 
 		.form-container {
@@ -65,12 +65,12 @@
 			margin-bottom: 20px;
 		}
 
-		.form-floating > .form-control,
-		.form-floating > .form-select {
+		.form-floating>.form-control,
+		.form-floating>.form-select {
 			height: 58px;
 		}
 
-		.form-floating > label {
+		.form-floating>label {
 			padding: 1rem 0.75rem;
 		}
 
@@ -224,8 +224,9 @@
 
 <body>
 	<div class="container form-container">
-		
-		<form th:action="@{/enviarFormulario}" class="needs-validation" method="post" id="formularioPrincipal" enctype="multipart/form-data" novalidate>
+
+		<form th:action="@{/enviarFormulario}" class="needs-validation" method="post" id="formularioPrincipal"
+			enctype="multipart/form-data" novalidate>
 			<!-- Datos de la organización -->
 			<div class="card">
 				<div class="card-header">
@@ -233,7 +234,8 @@
 				</div>
 				<div class="card-body">
 					<div class="form-floating mb-3">
-						<input type="text" id="nombreOrganizacion" name="nombreOrganizacion" class="form-control" required>
+						<input type="text" id="nombreOrganizacion" name="nombreOrganizacion" class="form-control"
+							required>
 						<label for="nombreOrganizacion" class="required-field">1. Nombre de la organización</label>
 						<div class="invalid-feedback">
 							Por favor ingrese el nombre de la organización.
@@ -253,14 +255,14 @@
 						<div class="col-md-6">
 							<div class="form-floating mb-3 position-relative">
 								<!-- Nota que flota en la parte superior derecha al enfocar el input -->
-								<small id="direccionNota" class="text-danger position-absolute text-danger" 
-									   style="top: -0.15rem; right: 0.5rem; font-size: 0.775rem; display: none;">
+								<small id="direccionNota" class="text-danger position-absolute text-danger"
+									style="top: -0.15rem; right: 0.5rem; font-size: 0.775rem; display: none;">
 									No uses el símbolo numeral (#) en este campo.
 								</small>
 
 								<input type="text" id="direccion" name="direccion" class="form-control" required
-									   onfocus="document.getElementById('direccionNota').style.display = 'block'"
-									   onblur="document.getElementById('direccionNota').style.display = 'none'">
+									onfocus="document.getElementById('direccionNota').style.display = 'block'"
+									onblur="document.getElementById('direccionNota').style.display = 'none'">
 								<label for="direccion" class="required-field">3. Dirección</label>
 
 								<div class="invalid-feedback">
@@ -273,8 +275,10 @@
 					<div class="row">
 						<div class="col-md-6">
 							<div class="form-floating mb-3">
-								<input type="text" id="nombreGerente" name="nombreGerente" class="form-control" required>
-								<label for="nombreGerente" class="required-field">4. Nombre del gerente / representante legal</label>
+								<input type="text" id="nombreGerente" name="nombreGerente" class="form-control"
+									required>
+								<label for="nombreGerente" class="required-field">4. Nombre del gerente / representante
+									legal</label>
 								<div class="invalid-feedback">
 									Por favor ingrese el nombre del gerente.
 								</div>
@@ -299,7 +303,8 @@
 							<div class="mt-2 d-none" id="otroSectorContainer">
 								<div class="input-group">
 									<span class="input-group-text"><i class="bi bi-question-circle"></i></span>
-									<input type="text" id="otroSector" name="otroSector" class="form-control" placeholder="¿Cuál?">
+									<input type="text" id="otroSector" name="otroSector" class="form-control"
+										placeholder="¿Cuál?">
 								</div>
 							</div>
 						</div>
@@ -458,13 +463,15 @@
 						<label class="form-label required-field">8. Afiliado a Comfenalco Antioquia</label>
 						<div class="d-flex gap-4">
 							<div class="form-check">
-								<input class="form-check-input" type="radio" name="afiliado" id="afiliadoSI" value="SI" required>
+								<input class="form-check-input" type="radio" name="afiliado" id="afiliadoSI" value="SI"
+									required>
 								<label class="form-check-label" for="afiliadoSI">
 									<i class="bi bi-check-circle-fill text-success"></i> SÍ
 								</label>
 							</div>
 							<div class="form-check">
-								<input class="form-check-input" type="radio" name="afiliado" id="afiliadoNO" value="NO" required>
+								<input class="form-check-input" type="radio" name="afiliado" id="afiliadoNO" value="NO"
+									required>
 								<label class="form-check-label" for="afiliadoNO">
 									<i class="bi bi-x-circle-fill text-danger"></i> NO
 								</label>
@@ -479,13 +486,15 @@
 						<label class="form-label required-field">9. Tiene área de comunicaciones</label>
 						<div class="d-flex gap-4">
 							<div class="form-check">
-								<input class="form-check-input" type="radio" name="comunicaciones" id="comSI" value="SI" required>
+								<input class="form-check-input" type="radio" name="comunicaciones" id="comSI" value="SI"
+									required>
 								<label class="form-check-label" for="comSI">
 									<i class="bi bi-check-circle-fill text-success"></i> SÍ
 								</label>
 							</div>
 							<div class="form-check">
-								<input class="form-check-input" type="radio" name="comunicaciones" id="comNO" value="NO" required>
+								<input class="form-check-input" type="radio" name="comunicaciones" id="comNO" value="NO"
+									required>
 								<label class="form-check-label" for="comNO">
 									<i class="bi bi-x-circle-fill text-danger"></i> NO
 								</label>
@@ -502,19 +511,22 @@
 									<div class="mb-3">
 										<div class="input-group">
 											<span class="input-group-text"><i class="bi bi-person-fill"></i></span>
-											<input type="text" id="nombreCompletoPersona" name="nombreCompletoPersona" class="form-control" placeholder="Nombre completo de la persona">
+											<input type="text" id="nombreCompletoPersona" name="nombreCompletoPersona"
+												class="form-control" placeholder="Nombre completo de la persona">
 										</div>
 									</div>
 									<div class="mb-3">
 										<div class="input-group">
 											<span class="input-group-text"><i class="bi bi-telephone-fill"></i></span>
-											<input type="text" id="numeroContacto" name="numeroContacto" class="form-control" placeholder="Número de contacto">
+											<input type="text" id="numeroContacto" name="numeroContacto"
+												class="form-control" placeholder="Número de contacto">
 										</div>
 									</div>
 									<div class="mb-3">
 										<div class="input-group">
 											<span class="input-group-text"><i class="bi bi-envelope-fill"></i></span>
-											<input type="email" id="correoElectronico" name="correoElectronico" class="form-control" placeholder="Correo electrónico">
+											<input type="email" id="correoElectronico" name="correoElectronico"
+												class="form-control" placeholder="Correo electrónico">
 										</div>
 									</div>
 								</div>
@@ -538,189 +550,24 @@
 							<option>Inclusión Laboral de Personas en Movilidad Humana</option>
 							<option>Inclusión Laboral de Otras Poblaciones Diversas</option>
 							<option>Inclusión Social o Educativa</option>
-							<option>Reconocimiento Bienestar</option>
 						</select>
-						<label for="categoria" class="required-field">10. ¿En cuál de las siguientes categorías desea participar?</label>
+						<label for="categoria" class="required-field">10. ¿En cuál de las siguientes categorías desea
+							participar?</label>
 						<div class="invalid-feedback">
 							Por favor seleccione una categoría.
 						</div>
 					</div>
 
-					<div id="prguntasPrimarias">
-						<div class="mb-4">
-							<label class="form-label required-field">11. ¿Qué grupos poblacionales diversos acompaña la organización?</label>
-							<div class="card bg-light">
-								<div class="card-body">
-									<div class="row">
-										<div class="col-md-6">
-											<div class="form-check mb-2">
-												<input class="form-check-input" type="checkbox" name="conflicto" id="conflicto">
-												<label class="form-check-label" for="conflicto">
-													<i class="bi bi-people-fill text-primary me-1"></i> Población Víctima del Conflicto Armado
-												</label>
-											</div>
-											<div class="form-check mb-2">
-												<input class="form-check-input" type="checkbox" name="discapacidad" id="discapacidad">
-												<label class="form-check-label" for="discapacidad">
-													<i class="bi bi-person-fill text-primary me-1"></i> Personas con Discapacidad
-												</label>
-											</div>
-											<div class="form-check mb-2">
-												<input class="form-check-input" type="checkbox" name="mujeres" id="mujeres">
-												<label class="form-check-label" for="mujeres">
-													<i class="bi bi-gender-female text-primary me-1"></i> Mujeres
-												</label>
-											</div>
-										</div>
-										<div class="col-md-6">
-											<div class="form-check mb-2">
-												<input class="form-check-input" type="checkbox" name="jovenes" id="jovenes">
-												<label class="form-check-label" for="jovenes">
-													<i class="bi bi-emoji-smile text-primary me-1"></i> Jóvenes
-												</label>
-											</div>
-											<div class="form-check mb-2">
-												<input class="form-check-input" type="checkbox" name="migrantes" id="migrantes">
-												<label class="form-check-label" for="migrantes">
-													<i class="bi bi-geo-alt-fill text-primary me-1"></i> Migrantes y Retornados
-												</label>
-											</div>
-											<div class="form-check mb-2">
-												<input class="form-check-input" type="checkbox" name="lgbtiq" id="lgbtiq">
-												<label class="form-check-label" for="lgbtiq">
-													<i class="bi bi-rainbow text-primary me-1"></i> Población LGBTIQ+
-												</label>
-											</div>
-										</div>
-									</div>
-									<div class="form-check mt-2">
-										<input class="form-check-input" type="checkbox" name="otroGrupo" id="otroGrupo">
-										<label class="form-check-label" for="otroGrupo">
-											<i class="bi bi-plus-circle-fill text-primary me-1"></i> Otro
-										</label>
-									</div>
-									<div id="otroGrupoTexto" class="mt-2 d-none">
-										<div class="input-group">
-											<span class="input-group-text"><i class="bi bi-question-circle"></i></span>
-											<input type="text" class="form-control" name="otroGrupoTexto" placeholder="¿Cuál?">
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="mb-4" id="grupoPersonas" style="display: none;">
-							<div class="form-floating">
-								<input id="numPersonasIncluidas" name="numPersonasIncluidas" type="number" class="form-control" min="0">
-								<label for="numPersonasIncluidas" class="required-field">12. ¿Cuántas personas del grupo poblacional seleccionado tiene contratadas?</label>
-								<div class="invalid-feedback">
-									Por favor ingrese un número válido.
-								</div>
-							</div>
-						</div>
-
-						<div class="mb-4">
-							<label class="form-label required-field">13. ¿La organización ha sido reconocida anteriormente en temas de inclusión?</label>
-							<div class="d-flex gap-4">
-								<div class="form-check">
-									<input class="form-check-input" type="radio" name="reconocida" id="reconocidaSI" value="SI" required>
-									<label class="form-check-label" for="reconocidaSI">
-										<i class="bi bi-check-circle-fill text-success"></i> SÍ
-									</label>
-								</div>
-								<div class="form-check">
-									<input class="form-check-input" type="radio" name="reconocida" id="reconocidaNO" value="NO" required>
-									<label class="form-check-label" for="reconocidaNO">
-										<i class="bi bi-x-circle-fill text-danger"></i> NO
-									</label>
-								</div>
-							</div>
-							<div class="invalid-feedback">
-								Por favor seleccione una opción.
-							</div>
-							<div id="detalleReconocimiento" class="mt-3 d-none">
-								<div class="input-group">
-									<span class="input-group-text"><i class="bi bi-trophy-fill"></i></span>
-									<input type="text" class="form-control" name="detalleReconocimiento" placeholder="¿Cuáles reconocimientos ha recibido?">
-								</div>
-							</div>
-						</div>
-
-						<div class="form-floating mb-4">
-							<input type="text" id="nombrePractica" name="nombrePractica" class="form-control" required>
-							<label for="nombrePractica" class="required-field">14. Nombre de la práctica o estrategia de inclusión</label>
-							<div class="invalid-feedback">
-								Por favor ingrese el nombre de la práctica.
-							</div>
-						</div>
-
-						<div class="form-floating mb-4">
-							<textarea id="razonesInclusion" name="razonesInclusion" class="form-control" style="height: 120px" required></textarea>
-							<label for='razonesInclusion' class="required-field">15. ¿Qué razones motivan a la organización a realizar acciones de inclusión?</label>
-							<div class="invalid-feedback">
-								Por favor complete este campo.
-							</div>
-						</div>
-
-						<div class="form-floating mb-4">
-							<textarea id="practicasInclusion" name="practicasInclusion" class="form-control" style="height: 120px" required></textarea>
-							<label for="practicasInclusion" class="required-field">16. Describa brevemente la práctica o estrategia de inclusión</label>
-							<div class="invalid-feedback">
-								Por favor complete este campo.
-							</div>
-						</div>
-
-						<div class="form-floating mb-4">
-							<textarea id="practicasInclusivas" name="practicasInclusivas" class="form-control" style="height: 120px" required></textarea>
-							<label for="practicasInclusivas" class="required-field">17. ¿Qué prácticas o experiencias inclusivas ha generado su organización?</label>
-							<div class="invalid-feedback">
-								Por favor complete este campo.
-							</div>
-						</div>
-
-						<div class="form-floating mb-4">
-							<input id="tiempoEstrategia" name="tiempoEstrategia" type="text" class="form-control" required>
-							<label for="tiempoEstrategia" class="required-field">18. ¿Hace cuánto tiempo se implementa la estrategia de inclusión?</label>
-							<div class="invalid-feedback">
-								Por favor complete este campo.
-							</div>
-						</div>
-
-						<div class="mb-4">
-							<label class="form-label required-field">19. ¿La organización tiene documentada la práctica o estrategia?</label>
-							<div class="d-flex gap-4">
-								<div class="form-check">
-									<input class="form-check-input" type="radio" name="documentada" id="documentadaSI" value="SI" required>
-									<label class="form-check-label" for="documentadaSI">
-										<i class="bi bi-check-circle-fill text-success"></i> SÍ
-									</label>
-								</div>
-								<div class="form-check">
-									<input class="form-check-input" type="radio" name="documentada" id="documentadaNO" value="NO" required>
-									<label class="form-check-label" for="documentadaNO">
-										<i class="bi bi-x-circle-fill text-danger"></i> NO
-									</label>
-								</div>
-							</div>
-							<div class="invalid-feedback">
-								Por favor seleccione una opción.
-							</div>
-						</div>
-
-						<div class="form-floating mb-4">
-							<textarea id="accionesPermanencia" name="accionesPermanencia" class="form-control" style="height: 120px" required></textarea>
-							<label for="accionesPermanencia" class="required-field">20. ¿Qué acciones realiza para acompañar la permanencia de la población?</label>
-							<div class="invalid-feedback">
-								Por favor complete este campo.
-							</div>
-						</div>
-
-						<div class="form-floating mb-4">
-							<textarea id="principalesLogros" name="principalesLogros" class="form-control" style="height: 120px" required></textarea>
-							<label for="principalesLogros" class="required-field">21. Principales logros, resultados o indicadores</label>
-							<div class="invalid-feedback">
-								Por favor complete este campo.
-							</div>
+					<div class="form-floating mb-4">
+						<select class="form-select" id="practicaBienestar" name="practicaBienestar" required>
+							<option value="">Seleccione...</option>
+							<option>SI</option>
+							<option>NO</option>
+						</select>
+						<label for="practicaBienestar" class="required-field">11. ¿Realiza acciones para asegurar el impacto de
+							las prácticas de bienestar?</label>
+						<div class="invalid-feedback">
+							Por favor seleccione una categoría.
 						</div>
 					</div>
 
@@ -733,32 +580,38 @@
 								<option>Disfrute</option>
 								<option>Vínculos Sociales</option>
 							</select>
-							<label for="dimensionBienestar" class="required-field">11. ¿En cuál dimensión del Bienestar desea participar?</label>
+							<label for="dimensionBienestar" class="required-field">11.1 ¿En cuál dimensión del Bienestar
+								desea participar?</label>
 							<div class="invalid-feedback">
 								Por favor seleccione una dimensión.
 							</div>
 						</div>
 
 						<div class="mb-4">
-							<label class="form-label required-field">12. ¿Qué grupos poblacionales acompaña la organización?</label>
+							<label class="form-label required-field">11.2 ¿Qué grupos poblacionales acompaña la
+								organización?</label>
 							<div class="card bg-light">
 								<div class="card-body">
 									<div class="row">
 										<div class="col-md-6">
 											<div class="form-check mb-2">
-												<input class="form-check-input" type="checkbox" name="empleados" id="empleados">
+												<input class="form-check-input" type="checkbox" name="empleados"
+													id="empleados">
 												<label class="form-check-label" for="empleados">
-													<i class="bi bi-person-badge text-primary me-1"></i> Empleados directos
+													<i class="bi bi-person-badge text-primary me-1"></i> Empleados
+													directos
 												</label>
 											</div>
 											<div class="form-check mb-2">
-												<input class="form-check-input" type="checkbox" name="aprendices" id="aprendices">
+												<input class="form-check-input" type="checkbox" name="aprendices"
+													id="aprendices">
 												<label class="form-check-label" for="aprendices">
 													<i class="bi bi-mortarboard-fill text-primary me-1"></i> Aprendices
 												</label>
 											</div>
 											<div class="form-check mb-2">
-												<input class="form-check-input" type="checkbox" name="familias" id="familias">
+												<input class="form-check-input" type="checkbox" name="familias"
+													id="familias">
 												<label class="form-check-label" for="familias">
 													<i class="bi bi-people-fill text-primary me-1"></i> Familias
 												</label>
@@ -766,13 +619,15 @@
 										</div>
 										<div class="col-md-6">
 											<div class="form-check mb-2">
-												<input class="form-check-input" type="checkbox" name="proveedores" id="proveedores">
+												<input class="form-check-input" type="checkbox" name="proveedores"
+													id="proveedores">
 												<label class="form-check-label" for="proveedores">
 													<i class="bi bi-truck text-primary me-1"></i> Proveedores
 												</label>
 											</div>
 											<div class="form-check mb-2">
-												<input class="form-check-input" type="checkbox" name="comunidad" id="comunidad">
+												<input class="form-check-input" type="checkbox" name="comunidad"
+													id="comunidad">
 												<label class="form-check-label" for="comunidad">
 													<i class="bi bi-houses-fill text-primary me-1"></i> Comunidad
 												</label>
@@ -780,7 +635,8 @@
 										</div>
 									</div>
 									<div class="form-check mt-2">
-										<input class="form-check-input" type="checkbox" name="otroGrupoBienestar" id="otroGrupoBienestar">
+										<input class="form-check-input" type="checkbox" name="otroGrupoBienestar"
+											id="otroGrupoBienestar">
 										<label class="form-check-label" for="otroGrupoBienestar">
 											<i class="bi bi-plus-circle-fill text-primary me-1"></i> Otro
 										</label>
@@ -788,7 +644,8 @@
 									<div id="otroGrupoBienestarTexto" class="mt-2 d-none">
 										<div class="input-group">
 											<span class="input-group-text"><i class="bi bi-question-circle"></i></span>
-											<input type="text" class="form-control" name="otroGrupoBienestarTexto" placeholder="¿Cuál?">
+											<input type="text" class="form-control" name="otroGrupoBienestarTexto"
+												placeholder="¿Cuál?">
 										</div>
 									</div>
 								</div>
@@ -796,56 +653,69 @@
 						</div>
 
 						<div class="form-floating mb-4">
-							<textarea id="impactoPersonas" name="impactoPersonas" class="form-control" style="height: 120px" required></textarea>
-							<label for="impactoPersonas" class="required-field">13. ¿Cuántas personas están siendo impactadas con la práctica?</label>
+							<textarea id="impactoPersonas" name="impactoPersonas" class="form-control"
+								style="height: 120px" required></textarea>
+							<label for="impactoPersonas" class="required-field">11.3 ¿Cuántas personas están siendo
+								impactadas con la práctica?</label>
 							<div class="invalid-feedback">
 								Por favor complete este campo.
 							</div>
 						</div>
 
 						<div class="form-floating mb-4">
-							<textarea id="razonesBienestar" name="razonesBienestar" class="form-control" style="height: 120px" required></textarea>
-							<label for="razonesBienestar" class="required-field">14. ¿Qué razones motivan a la organización a diseñar prácticas de Bienestar?</label>
+							<textarea id="razonesBienestar" name="razonesBienestar" class="form-control"
+								style="height: 120px" required></textarea>
+							<label for="razonesBienestar" class="required-field">11.4 ¿Qué razones motivan a la
+								organización a diseñar prácticas de Bienestar?</label>
 							<div class="invalid-feedback">
 								Por favor complete este campo.
 							</div>
 						</div>
 
 						<div class="form-floating mb-4">
-							<input type="text" id="nombreEstrategiaBienestar" name="nombreEstrategiaBienestar" class="form-control" required>
-							<label for="nombreEstrategiaBienestar" class="required-field">15. Nombre de la práctica o estrategia de bienestar</label>
+							<input type="text" id="nombreEstrategiaBienestar" name="nombreEstrategiaBienestar"
+								class="form-control" required>
+							<label for="nombreEstrategiaBienestar" class="required-field">11.5 Nombre de la práctica o
+								estrategia de bienestar</label>
 							<div class="invalid-feedback">
 								Por favor ingrese el nombre de la práctica.
 							</div>
 						</div>
 
 						<div class="form-floating mb-4">
-							<textarea id="descripcionEstrategia" name="descripcionEstrategia" class="form-control" style="height: 120px" required></textarea>
-							<label for="descripcionEstrategia" class="required-field">16. Describa brevemente la práctica o estrategia de Bienestar</label>
+							<textarea id="descripcionEstrategia" name="descripcionEstrategia" class="form-control"
+								style="height: 120px" required></textarea>
+							<label for="descripcionEstrategia" class="required-field">11.6 Describa brevemente la
+								práctica o estrategia de Bienestar</label>
 							<div class="invalid-feedback">
 								Por favor complete este campo.
 							</div>
 						</div>
 
 						<div class="form-floating mb-4">
-							<textarea id="tiempoYArticulacion" name="tiempoYArticulacion" class="form-control" style="height: 120px" required></textarea>
-							<label for="tiempoYArticulacion" class="required-field">17. ¿Hace cuánto tiempo se implementa la estrategia?</label>
+							<textarea id="tiempoYArticulacion" name="tiempoYArticulacion" class="form-control"
+								style="height: 120px" required></textarea>
+							<label for="tiempoYArticulacion" class="required-field">11.7 ¿Hace cuánto tiempo se
+								implementa la estrategia?</label>
 							<div class="invalid-feedback">
 								Por favor complete este campo.
 							</div>
 						</div>
 
 						<div class="mb-4">
-							<label class="form-label required-field">18. ¿La organización tiene documentada la práctica de Bienestar?</label>
+							<label class="form-label required-field">11.8 ¿La organización tiene documentada la práctica
+								de Bienestar?</label>
 							<div class="d-flex gap-4">
 								<div class="form-check">
-									<input class="form-check-input" type="radio" name="documentadaBienestar" id="documentadaBienestarSI" value="SI" required>
+									<input class="form-check-input" type="radio" name="documentadaBienestar"
+										id="documentadaBienestarSI" value="SI" required>
 									<label class="form-check-label" for="documentadaBienestarSI">
 										<i class="bi bi-check-circle-fill text-success"></i> SÍ
 									</label>
 								</div>
 								<div class="form-check">
-									<input class="form-check-input" type="radio" name="documentadaBienestar" id="documentadaBienestarNO" value="NO" required>
+									<input class="form-check-input" type="radio" name="documentadaBienestar"
+										id="documentadaBienestarNO" value="NO" required>
 									<label class="form-check-label" for="documentadaBienestarNO">
 										<i class="bi bi-x-circle-fill text-danger"></i> NO
 									</label>
@@ -857,32 +727,40 @@
 						</div>
 
 						<div class="form-floating mb-4">
-							<textarea id="accionesImpacto" name="accionesImpacto" class="form-control" style="height: 120px" required></textarea>
-							<label for="accionesImpacto" class="required-field">19. ¿Qué acciones realiza para asegurar el impacto esperado?</label>
+							<textarea id="accionesImpacto" name="accionesImpacto" class="form-control"
+								style="height: 120px" required></textarea>
+							<label for="accionesImpacto" class="required-field">11.9 ¿Qué acciones realiza para asegurar
+								el impacto esperado?</label>
 							<div class="invalid-feedback">
 								Por favor complete este campo.
 							</div>
 						</div>
 
 						<div class="form-floating mb-4">
-							<textarea id="logrosBienestar" name="logrosBienestar" class="form-control" style="height: 120px" required></textarea>
-							<label for="logrosBienestar" class="required-field">20. Principales logros, resultados o indicadores</label>
+							<textarea id="logrosBienestar" name="logrosBienestar" class="form-control"
+								style="height: 120px" required></textarea>
+							<label for="logrosBienestar" class="required-field">1.10 Principales logros, resultados o
+								indicadores</label>
 							<div class="invalid-feedback">
 								Por favor complete este campo.
 							</div>
 						</div>
 
 						<div class="mb-4">
-							<label class="form-label required-field">21. ¿La organización ha sido reconocida en temas de bienestar?</label>
+							<label class="form-label required-field">11.11 ¿La organización ha sido reconocida en temas
+								de
+								bienestar?</label>
 							<div class="d-flex gap-4">
 								<div class="form-check">
-									<input class="form-check-input" type="radio" name="reconocidaBienestar" id="reconocidaBienestarSI" value="SI" required>
+									<input class="form-check-input" type="radio" name="reconocidaBienestar"
+										id="reconocidaBienestarSI" value="SI" required>
 									<label class="form-check-label" for="reconocidaBienestarSI">
 										<i class="bi bi-check-circle-fill text-success"></i> SÍ
 									</label>
 								</div>
 								<div class="form-check">
-									<input class="form-check-input" type="radio" name="reconocidaBienestar" id="reconocidaBienestarNO" value="NO" required>
+									<input class="form-check-input" type="radio" name="reconocidaBienestar"
+										id="reconocidaBienestarNO" value="NO" required>
 									<label class="form-check-label" for="reconocidaBienestarNO">
 										<i class="bi bi-x-circle-fill text-danger"></i> NO
 									</label>
@@ -894,11 +772,218 @@
 							<div id="detalleReconocimientoBienestar" class="mt-3 d-none">
 								<div class="input-group">
 									<span class="input-group-text"><i class="bi bi-trophy-fill"></i></span>
-									<input type="text" class="form-control" name="detalleReconocimientoBienestar" placeholder="¿Cuáles reconocimientos ha recibido?">
+									<input type="text" class="form-control" name="detalleReconocimientoBienestar"
+										placeholder="¿Cuáles reconocimientos ha recibido?">
 								</div>
 							</div>
 						</div>
 					</div>
+
+					<div class="mb-4">
+						<label class="form-label required-field">12. ¿Qué grupos poblacionales diversos acompaña la
+							organización?</label>
+						<div class="card bg-light">
+							<div class="card-body">
+								<div class="row">
+									<div class="col-md-6">
+										<div class="form-check mb-2">
+											<input class="form-check-input" type="checkbox" name="conflicto"
+												id="conflicto">
+											<label class="form-check-label" for="conflicto">
+												<i class="bi bi-people-fill text-primary me-1"></i> Población Víctima
+												del Conflicto Armado
+											</label>
+										</div>
+										<div class="form-check mb-2">
+											<input class="form-check-input" type="checkbox" name="discapacidad"
+												id="discapacidad">
+											<label class="form-check-label" for="discapacidad">
+												<i class="bi bi-person-fill text-primary me-1"></i> Personas con
+												Discapacidad
+											</label>
+										</div>
+										<div class="form-check mb-2">
+											<input class="form-check-input" type="checkbox" name="mujeres" id="mujeres">
+											<label class="form-check-label" for="mujeres">
+												<i class="bi bi-gender-female text-primary me-1"></i> Mujeres
+											</label>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="form-check mb-2">
+											<input class="form-check-input" type="checkbox" name="jovenes" id="jovenes">
+											<label class="form-check-label" for="jovenes">
+												<i class="bi bi-emoji-smile text-primary me-1"></i> Jóvenes
+											</label>
+										</div>
+										<div class="form-check mb-2">
+											<input class="form-check-input" type="checkbox" name="migrantes"
+												id="migrantes">
+											<label class="form-check-label" for="migrantes">
+												<i class="bi bi-geo-alt-fill text-primary me-1"></i> Migrantes y
+												Retornados
+											</label>
+										</div>
+										<div class="form-check mb-2">
+											<input class="form-check-input" type="checkbox" name="lgbtiq" id="lgbtiq">
+											<label class="form-check-label" for="lgbtiq">
+												<i class="bi bi-rainbow text-primary me-1"></i> Población LGBTIQ+
+											</label>
+										</div>
+									</div>
+								</div>
+								<div class="form-check mt-2">
+									<input class="form-check-input" type="checkbox" name="otroGrupo" id="otroGrupo">
+									<label class="form-check-label" for="otroGrupo">
+										<i class="bi bi-plus-circle-fill text-primary me-1"></i> Otro
+									</label>
+								</div>
+								<div id="otroGrupoTexto" class="mt-2 d-none">
+									<div class="input-group">
+										<span class="input-group-text"><i class="bi bi-question-circle"></i></span>
+										<input type="text" class="form-control" name="otroGrupoTexto"
+											placeholder="¿Cuál?">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="mb-4" id="grupoPersonas" style="display: none;">
+						<div class="form-floating">
+							<input id="numPersonasIncluidas" name="numPersonasIncluidas" type="number"
+								class="form-control" min="0">
+							<label for="numPersonasIncluidas" class="required-field">13. ¿Cuántas personas del grupo
+								poblacional seleccionado tiene contratadas?</label>
+							<div class="invalid-feedback">
+								Por favor ingrese un número válido.
+							</div>
+						</div>
+					</div>
+
+					<div class="mb-4">
+						<label class="form-label required-field">14. ¿La organización ha sido reconocida anteriormente
+							en temas de inclusión?</label>
+						<div class="d-flex gap-4">
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="reconocida" id="reconocidaSI"
+									value="SI" required>
+								<label class="form-check-label" for="reconocidaSI">
+									<i class="bi bi-check-circle-fill text-success"></i> SÍ
+								</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="reconocida" id="reconocidaNO"
+									value="NO" required>
+								<label class="form-check-label" for="reconocidaNO">
+									<i class="bi bi-x-circle-fill text-danger"></i> NO
+								</label>
+							</div>
+						</div>
+						<div class="invalid-feedback">
+							Por favor seleccione una opción.
+						</div>
+						<div id="detalleReconocimiento" class="mt-3 d-none">
+							<div class="input-group">
+								<span class="input-group-text"><i class="bi bi-trophy-fill"></i></span>
+								<input type="text" class="form-control" name="detalleReconocimiento"
+									placeholder="¿Cuáles reconocimientos ha recibido?">
+							</div>
+						</div>
+					</div>
+
+					<div class="form-floating mb-4">
+						<input type="text" id="nombrePractica" name="nombrePractica" class="form-control" required>
+						<label for="nombrePractica" class="required-field">15. Nombre de la práctica o estrategia de
+							inclusión</label>
+						<div class="invalid-feedback">
+							Por favor ingrese el nombre de la práctica.
+						</div>
+					</div>
+
+					<div class="form-floating mb-4">
+						<textarea id="razonesInclusion" name="razonesInclusion" class="form-control"
+							style="height: 120px" required></textarea>
+						<label for='razonesInclusion' class="required-field">16. ¿Qué razones motivan a la organización
+							a realizar acciones de inclusión?</label>
+						<div class="invalid-feedback">
+							Por favor complete este campo.
+						</div>
+					</div>
+
+					<div class="form-floating mb-4">
+						<textarea id="practicasInclusion" name="practicasInclusion" class="form-control"
+							style="height: 120px" required></textarea>
+						<label for="practicasInclusion" class="required-field">17. Describa brevemente la práctica o
+							estrategia de inclusión</label>
+						<div class="invalid-feedback">
+							Por favor complete este campo.
+						</div>
+					</div>
+
+					<div class="form-floating mb-4">
+						<textarea id="practicasInclusivas" name="practicasInclusivas" class="form-control"
+							style="height: 120px" required></textarea>
+						<label for="practicasInclusivas" class="required-field">18. ¿Qué prácticas o experiencias
+							inclusivas ha generado su organización?</label>
+						<div class="invalid-feedback">
+							Por favor complete este campo.
+						</div>
+					</div>
+
+					<div class="form-floating mb-4">
+						<input id="tiempoEstrategia" name="tiempoEstrategia" type="text" class="form-control" required>
+						<label for="tiempoEstrategia" class="required-field">19. ¿Hace cuánto tiempo se implementa la
+							estrategia de inclusión?</label>
+						<div class="invalid-feedback">
+							Por favor complete este campo.
+						</div>
+					</div>
+
+					<div class="mb-4">
+						<label class="form-label required-field">20. ¿La organización tiene documentada la práctica o
+							estrategia?</label>
+						<div class="d-flex gap-4">
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="documentada" id="documentadaSI"
+									value="SI" required>
+								<label class="form-check-label" for="documentadaSI">
+									<i class="bi bi-check-circle-fill text-success"></i> SÍ
+								</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="documentada" id="documentadaNO"
+									value="NO" required>
+								<label class="form-check-label" for="documentadaNO">
+									<i class="bi bi-x-circle-fill text-danger"></i> NO
+								</label>
+							</div>
+						</div>
+						<div class="invalid-feedback">
+							Por favor seleccione una opción.
+						</div>
+					</div>
+
+					<div class="form-floating mb-4">
+						<textarea id="accionesPermanencia" name="accionesPermanencia" class="form-control"
+							style="height: 120px" required></textarea>
+						<label for="accionesPermanencia" class="required-field">21. ¿Qué acciones realiza para acompañar
+							la permanencia de la población?</label>
+						<div class="invalid-feedback">
+							Por favor complete este campo.
+						</div>
+					</div>
+
+					<div class="form-floating mb-4">
+						<textarea id="principalesLogros" name="principalesLogros" class="form-control"
+							style="height: 120px" required></textarea>
+						<label for="principalesLogros" class="required-field">22. Principales logros, resultados o
+							indicadores</label>
+						<div class="invalid-feedback">
+							Por favor complete este campo.
+						</div>
+					</div>
+
 				</div>
 			</div>
 
@@ -910,7 +995,8 @@
 				<div class="card-body">
 					<div class="form-floating mb-4">
 						<input id="nombrePostula" name="nombrePostula" type="text" class="form-control" required>
-						<label for="nombrePostula" class="required-field">22. Nombre completo de quien realiza la postulación</label>
+						<label for="nombrePostula" class="required-field">23. Nombre completo de quien realiza la
+							postulación</label>
 						<div class="invalid-feedback">
 							Por favor ingrese su nombre completo.
 						</div>
@@ -919,8 +1005,10 @@
 					<div class="row">
 						<div class="col-md-6">
 							<div class="form-floating mb-4">
-								<input id="numeroContactoPostulante" name="numeroContactoPostulante" type="text" class="form-control" required>
-								<label for="numeroContactoPostulante" class="required-field">23. Número de contacto</label>
+								<input id="numeroContactoPostulante" name="numeroContactoPostulante" type="text"
+									class="form-control" required>
+								<label for="numeroContactoPostulante" class="required-field">24. Número de
+									contacto</label>
 								<div class="invalid-feedback">
 									Por favor ingrese un número de contacto.
 								</div>
@@ -928,8 +1016,9 @@
 						</div>
 						<div class="col-md-6">
 							<div class="form-floating mb-4">
-								<input id="correoPostulacion" name="correoPostulacion" type="email" class="form-control" required>
-								<label for='correoPostulacion' class="required-field">24. Correo electrónico</label>
+								<input id="correoPostulacion" name="correoPostulacion" type="email" class="form-control"
+									required>
+								<label for='correoPostulacion' class="required-field">25. Correo electrónico</label>
 								<div class="invalid-feedback">
 									Por favor ingrese un correo electrónico válido.
 								</div>
@@ -939,7 +1028,7 @@
 
 					<div class="form-floating mb-4">
 						<input id="cargoPostulacion" name="cargoPostulacion" type="text" class="form-control" required>
-						<label for='cargoPostulacion' class="required-field">25. Cargo</label>
+						<label for='cargoPostulacion' class="required-field">26. Cargo</label>
 						<div class="invalid-feedback">
 							Por favor ingrese su cargo.
 						</div>
@@ -947,28 +1036,30 @@
 
 					<div class="form-floating mb-4">
 						<input id="urlVideo" name="urlVideo" type="url" class="form-control" required>
-						<label for="urlVideo" class="required-field">26. URL del video</label>
+						<label for="urlVideo" class="required-field">27. URL del video</label>
 						<div class="invalid-feedback">
 							Por favor ingrese una URL válida.
 						</div>
 						<div class="form-text">
-							<i class="bi bi-info-circle"></i> Comparta un video que muestre su práctica de inclusión (YouTube, Vimeo, etc.)
+							<i class="bi bi-info-circle"></i> Comparta un video que muestre su práctica de inclusión
+							(YouTube, Vimeo, etc.)
 						</div>
 					</div>
 
 					<div class="form-floating mb-4">
 						<input id="urlDrive" name="urlDrive" type="url" class="form-control" required>
-						<label for="urlDrive" class="required-field">27. URL DRIVE</label>
+						<label for="urlDrive" class="required-field">28. URL DRIVE</label>
 						<div class="invalid-feedback">
 							Por favor ingrese una URL válida.
 						</div>
 						<div class="form-text">
-							<i class="bi bi-info-circle"></i> Comparta un enlace a Google Drive con documentos de soporte
+							<i class="bi bi-info-circle"></i> Comparta un enlace a Google Drive con documentos de
+							soporte
 						</div>
 					</div>
 
 					<div class="mb-4">
-						<label for="file" class="form-label">28. Documentos adicionales</label>
+						<label for="file" class="form-label">29. Documentos adicionales</label>
 						<div class="file-upload">
 							<input class="file-upload-input" type="file" id="file" name="file">
 							<label class="file-upload-label" for="file">
@@ -978,10 +1069,12 @@
 						</div>
 						<div class="form-text">
 							<i class="bi bi-info-circle"></i>
-							<b>Importante:</b> 
+							<b>Importante:</b>
 							<p>
-								Si desea subir más de un archivo, por favor comprímalos en un único archivo .zip antes de realizar la carga.
-								Tenga en cuenta que no se permitirá la carga de archivos que superen los <b>5 MB</b> de tamaño.
+								Si desea subir más de un archivo, por favor comprímalos en un único archivo .zip antes
+								de realizar la carga.
+								Tenga en cuenta que no se permitirá la carga de archivos que superen los <b>5 MB</b> de
+								tamaño.
 							</p>
 						</div>
 						<div class="invalid-feedback">
@@ -992,7 +1085,7 @@
 					<div class="form-check mb-4">
 						<input class="form-check-input" type="checkbox" name="datos" id="datos" required>
 						<label class="form-check-label required-field" for="datos">
-							29. Acepto el tratamiento de mis datos personales según la política de privacidad
+							30. Acepto el tratamiento de mis datos personales según la política de privacidad
 						</label>
 						<div class="invalid-feedback">
 							Debe aceptar el tratamiento de datos para continuar.
@@ -1004,8 +1097,8 @@
 							<i class="bi bi-arrow-counterclockwise"></i> Restablecer
 						</button>
 						<button type="submit" class="btn btn-primary" id="btnEnviar">
-						   <i class="bi bi-send-fill"></i> Enviar formulario
-						 </button>
+							<i class="bi bi-send-fill"></i> Enviar formulario
+						</button>
 					</div>
 				</div>
 			</div>
@@ -1014,198 +1107,168 @@
 
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 	<script>
-		document.addEventListener('DOMContentLoaded', function() {
+		document.addEventListener('DOMContentLoaded', function () {
 			// Inicializar variables
 			const form = document.getElementById('formularioPrincipal');
 			const progressBar = document.querySelector('.progress-bar');
 			const prguntasPrimarias = document.getElementById("prguntasPrimarias");
 			const prguntasSecundarias = document.getElementById("prguntasSecundarias");
-			
+
 			// Ocultar sección de preguntas secundarias por defecto
 			prguntasSecundarias.style.display = "none";
-			
-		
-			
+
+
+
 			// Manejo del sector "Otro"
 			const selectSector = document.getElementById("sector");
 			const otroSectorContainer = document.getElementById("otroSectorContainer");
-			
-			selectSector.addEventListener("change", function() {
+
+			selectSector.addEventListener("change", function () {
 				otroSectorContainer.classList.toggle("d-none", this.value !== "Otro");
 				if (this.value !== "Otro") {
 					document.getElementById("otroSector").value = "";
 				}
 			});
-			
+
 			// Manejo del área de comunicaciones
-			document.getElementById('comSI').addEventListener('change', function() {
+			document.getElementById('comSI').addEventListener('change', function () {
 				document.getElementById('comunicacionesInfo').classList.remove('d-none');
 			});
-			
-			document.getElementById('comNO').addEventListener('change', function() {
+
+			document.getElementById('comNO').addEventListener('change', function () {
 				document.getElementById('comunicacionesInfo').classList.add('d-none');
 				document.getElementById('nombreCompletoPersona').value = '';
 				document.getElementById('numeroContacto').value = '';
 				document.getElementById('correoElectronico').value = '';
 			});
-			
+
 			// Manejo de reconocimientos previos
-			document.getElementById('reconocidaSI').addEventListener('change', function() {
+			document.getElementById('reconocidaSI').addEventListener('change', function () {
 				document.getElementById('detalleReconocimiento').classList.remove('d-none');
 			});
-			
-			document.getElementById('reconocidaNO').addEventListener('change', function() {
+
+			document.getElementById('reconocidaNO').addEventListener('change', function () {
 				document.getElementById('detalleReconocimiento').classList.add('d-none');
 				document.getElementById('detalleReconocimiento').querySelector('input').value = '';
 			});
-			
+
 			// Manejo de reconocimientos de bienestar
 			document.querySelectorAll('[name="reconocidaBienestar"]').forEach(radio => {
-				radio.addEventListener('change', function() {
+				radio.addEventListener('change', function () {
 					document.getElementById('detalleReconocimientoBienestar').classList.toggle('d-none', this.id !== 'reconocidaBienestarSI');
 					if (this.id !== 'reconocidaBienestarSI') {
 						document.getElementById('detalleReconocimientoBienestar').querySelector('input').value = '';
 					}
 				});
 			});
-			
+
 			// Manejo de "Otro grupo"
-			document.getElementById('otroGrupo').addEventListener('change', function() {
+			document.getElementById('otroGrupo').addEventListener('change', function () {
 				document.getElementById('otroGrupoTexto').classList.toggle('d-none', !this.checked);
 				if (!this.checked) {
 					document.getElementById('otroGrupoTexto').querySelector('input').value = '';
 				}
 			});
-			
+
 			// Manejo de "Otro grupo bienestar"
-			document.getElementById('otroGrupoBienestar').addEventListener('change', function() {
+			document.getElementById('otroGrupoBienestar').addEventListener('change', function () {
 				document.getElementById('otroGrupoBienestarTexto').classList.toggle('d-none', !this.checked);
 				if (!this.checked) {
 					document.getElementById('otroGrupoBienestarTexto').querySelector('input').value = '';
 				}
 			});
-			
+
 			// Manejo de la categoría
-			document.getElementById("categoria").addEventListener("change", function () {
-			  const seleccion = this.value
-			  const campoGrupoPersonas = document.getElementById("grupoPersonas")
-			  const prguntasPrimarias = document.getElementById("prguntasPrimarias")
-			  const prguntasSecundarias = document.getElementById("prguntasSecundarias")
+			document.getElementById('categoria').addEventListener('change', function () {
+				var seleccion = this.value;
+				var campo = document.getElementById('grupoPersonas');
 
-			  // Mostrar/ocultar secciones según la selección
-			  if (seleccion === "Reconocimiento Bienestar") {
-			    prguntasPrimarias.style.display = "none"
-			    prguntasSecundarias.style.display = "block"
-
-			    // Hacer opcionales los campos de la sección primaria
-			    const camposPrimarios = prguntasPrimarias.querySelectorAll("input, textarea, select")
-			    camposPrimarios.forEach((campo) => {
-			      campo.removeAttribute("required")
-			    })
-
-			    // Hacer obligatorios los campos de la sección secundaria
-			    const camposSecundarios = prguntasSecundarias.querySelectorAll(
-			      "input[required], textarea[required], select[required]",
-			    )
-			    camposSecundarios.forEach((campo) => {
-			      campo.setAttribute("required", "required")
-			    })
-			  } else {
-			    prguntasPrimarias.style.display = "block"
-			    prguntasSecundarias.style.display = "none"
-
-			    // Hacer obligatorios los campos de la sección primaria
-			    const camposPrimarios = prguntasPrimarias.querySelectorAll(
-			      'input[type="text"][required], textarea[required], select[required]',
-			    )
-			    camposPrimarios.forEach((campo) => {
-			      campo.setAttribute("required", "required")
-			    })
-
-			    // Hacer opcionales los campos de la sección secundaria
-			    const camposSecundarios = prguntasSecundarias.querySelectorAll("input, textarea, select")
-			    camposSecundarios.forEach((campo) => {
-			      campo.removeAttribute("required")
-			    })
-
-			    // Manejo específico para el campo grupoPersonas
-			    if (seleccion === "Inclusión Social o Educativa") {
-			      campoGrupoPersonas.style.display = "block"
-			      campoGrupoPersonas.querySelector("input").setAttribute("required", "required")
-			    } else {
-			      campoGrupoPersonas.style.display = "none"
-			      campoGrupoPersonas.querySelector("input").removeAttribute("required")
-			    }
-			  }
+				if (seleccion === 'Inclusión Social o Educativa') {
+					campo.style.display = 'block';
+					campo.querySelector('input').setAttribute('required', 'required');
+				} else {
+					campo.style.display = 'none';
+					campo.querySelector('input').removeAttribute('required');
+				}
 			});
-			
+
+			// Manejo de practicas de bienestar
+			document.getElementById('practicaBienestar').addEventListener('change', function () {
+				var seleccion = this.value;
+				var campo = document.getElementById('prguntasSecundarias');
+
+				if (seleccion === 'SI') {
+					campo.style.display = 'block';
+
+				} else {
+					campo.style.display = 'none';
+				}
+			});
+
 			// Mostrar nombre del archivo seleccionado
 			document.getElementById('file').addEventListener('change', function () {
-			    const fileInput = this;
-			    const file = fileInput.files[0];
-			    const fileNameElement = document.getElementById('file-name');
+				const fileInput = this;
+				const file = fileInput.files[0];
+				const fileNameElement = document.getElementById('file-name');
 
-			    if (file) {
-			        const maxSizeMB = 5;
-			        const maxSizeBytes = maxSizeMB * 1024 * 1024;
+				if (file) {
+					const maxSizeMB = 5;
+					const maxSizeBytes = maxSizeMB * 1024 * 1024;
 
-			        if (file.size > maxSizeBytes) {
-			            alert("El archivo no debe superar los 5 MB.");
-			            fileInput.value = ""; // Limpiar el input
-			            fileNameElement.textContent = "Seleccionar archivo"; // Restablecer texto
-			        } else {
-			            fileNameElement.textContent = file.name;
-			        }
-			    } else {
-			        fileNameElement.textContent = "Seleccionar archivo";
-			    }
+					if (file.size > maxSizeBytes) {
+						alert("El archivo no debe superar los 5 MB.");
+						fileInput.value = ""; // Limpiar el input
+						fileNameElement.textContent = "Seleccionar archivo"; // Restablecer texto
+					} else {
+						fileNameElement.textContent = file.name;
+					}
+				} else {
+					fileNameElement.textContent = "Seleccionar archivo";
+				}
 			});
 
-			
 
-			form.addEventListener('submit', function(event) {
+
+			form.addEventListener('submit', function (event) {
 				const btnEnviar = document.getElementById('btnEnviar');
-			  if (categoria === "Reconocimiento Bienestar") {
-			    const camposPrimarios = prguntasPrimarias.querySelectorAll("[required]");
-			    camposPrimarios.forEach((campo) => {
-			      campo.setAttribute("data-temp-required", "true");
-			      campo.removeAttribute("required");
-			    });
-			  } else {
-			    const camposSecundarios = prguntasSecundarias.querySelectorAll("[required]");
-			    camposSecundarios.forEach((campo) => {
-			      campo.setAttribute("data-temp-required", "true");
-			      campo.removeAttribute("required");
-			    });
-			  }
+				const prguntasSecundarias = document.getElementById("prguntasSecundarias")
+				const practicaBienestar = document.getElementById("practicaBienestar")
+				// Quitar el requedido a los campos de preguntas de practica bienestar
+				if (practicaBienestar.value === "NO") {
+					const camposSecundarios = prguntasSecundarias.querySelectorAll("[required]");
+					camposSecundarios.forEach((campo) => {
+						campo.setAttribute("data-temp-required", "true");
+						campo.removeAttribute("required");
+					});
+				}
 
-			  if (!form.checkValidity()) {
-			    event.preventDefault();
-			    event.stopPropagation();
+				if (!form.checkValidity()) {
+					event.preventDefault();
+					event.stopPropagation();
 
-			    const firstInvalidField = form.querySelector(':invalid');
-			    if (firstInvalidField) {
-			      firstInvalidField.scrollIntoView({ behavior: 'smooth', block: 'center' });
-			    }
+					const firstInvalidField = form.querySelector(':invalid');
+					if (firstInvalidField) {
+						firstInvalidField.scrollIntoView({behavior: 'smooth', block: 'center'});
+					}
 
-			    form.classList.add('was-validated');
-			    return;
-			  }
+					form.classList.add('was-validated');
+					return;
+				}
 
-			  // ✅ Deshabilita el botón para evitar múltiples envíos
-			  btnEnviar.disabled = true;
-			  btnEnviar.innerHTML = `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Enviando...`;
+				// ✅ Deshabilita el botón para evitar múltiples envíos
+				btnEnviar.disabled = true;
+				btnEnviar.innerHTML = `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Enviando...`;
 
-			  form.classList.add('was-validated');
+				form.classList.add('was-validated');
 			});
-			
+
 			// Botón de restablecer
-			document.querySelector('button[type="button"]').addEventListener('click', function() {
+			document.querySelector('button[type="button"]').addEventListener('click', function () {
 				form.reset();
 				form.classList.remove('was-validated');
 				progressBar.style.width = '0%';
 				progressBar.setAttribute('aria-valuenow', 0);
-				
+
 				// Restablecer estados de los contenedores condicionales
 				document.getElementById('otroSectorContainer').classList.add('d-none');
 				document.getElementById('comunicacionesInfo').classList.add('d-none');
@@ -1214,10 +1277,10 @@
 				document.getElementById('detalleReconocimientoBienestar').classList.add('d-none');
 				document.getElementById('otroGrupoBienestarTexto').classList.add('d-none');
 				document.getElementById('grupoPersonas').style.display = 'none';
-				
+
 				// Restablecer texto del archivo
 				document.getElementById('file-name').textContent = 'Seleccionar archivo';
-				
+
 				// Mostrar preguntas primarias y ocultar secundarias
 				prguntasPrimarias.style.display = "block";
 				prguntasSecundarias.style.display = "none";

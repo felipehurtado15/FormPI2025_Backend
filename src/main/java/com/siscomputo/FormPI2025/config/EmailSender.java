@@ -107,12 +107,12 @@ public class EmailSender {
 	    html.append("<p><strong>Desea recibir comunicaciones:</strong> ").append(nullToEmpty(dto.getComunicaciones())).append("</p>");
 	    html.append("</div>");
 
-	    html.append("<div class='section'>");
+	    html.append("<!--<div class='section'>");
 	    html.append("<h3>Datos de contacto</h3>");
 	    html.append("<p><strong>Nombre completo:</strong> ").append(nullToEmpty(dto.getNombreCompletoPersona())).append("</p>");
 	    html.append("<p><strong>Teléfono:</strong> ").append(nullToEmpty(dto.getNumeroContacto())).append("</p>");
 	    html.append("<p><strong>Correo electrónico:</strong> ").append(nullToEmpty(dto.getCorreoElectronico())).append("</p>");
-	    html.append("</div>");
+	    html.append("</div>-->");
 
 	    html.append("<div class='section'>");
 	    html.append("<h3>Categoría y Grupos Poblacionales</h3>");
