@@ -251,9 +251,18 @@
 							</div>
 						</div>
 						<div class="col-md-6">
-							<div class="form-floating mb-3">
-								<input type="text" id="direccion" name="direccion" class="form-control" required>
+							<div class="form-floating mb-3 position-relative">
+								<!-- Nota que flota en la parte superior derecha al enfocar el input -->
+								<small id="direccionNota" class="text-danger position-absolute text-danger" 
+									   style="top: -0.15rem; right: 0.5rem; font-size: 0.775rem; display: none;">
+									No uses el símbolo numeral (#) en este campo.
+								</small>
+
+								<input type="text" id="direccion" name="direccion" class="form-control" required
+									   onfocus="document.getElementById('direccionNota').style.display = 'block'"
+									   onblur="document.getElementById('direccionNota').style.display = 'none'">
 								<label for="direccion" class="required-field">3. Dirección</label>
+
 								<div class="invalid-feedback">
 									Por favor ingrese la dirección.
 								</div>
@@ -959,9 +968,9 @@
 					</div>
 
 					<div class="mb-4">
-						<label for="file" class="form-label required-field">28. Documentos adicionales</label>
+						<label for="file" class="form-label">28. Documentos adicionales</label>
 						<div class="file-upload">
-							<input class="file-upload-input" type="file" id="file" name="file" required>
+							<input class="file-upload-input" type="file" id="file" name="file">
 							<label class="file-upload-label" for="file">
 								<i class="bi bi-upload me-2"></i>
 								<span id="file-name">Seleccionar archivo</span>

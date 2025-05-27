@@ -17,58 +17,64 @@ import com.siscomputo.FormPI2025.DTO.FormularioPremiosDTO;
 @Service
 @Component
 public class EmailSender {
+	
 	public void enviarCorreoConAdjunto(String destinatario, String asunto, String htmlCuerpo, File archivoAdjunto) {
-        try {
-        	System.out.println("destinatario: "+ destinatario);
-        	String remitente = "siadocp@gmail.com";
-             String password = "qcjalnqsrbfxzxyu";
+	    try {
+	        System.out.println("destinatario: " + destinatario);
+	        String remitente = "siadocp@gmail.com";
+	        String password = "qcjalnqsrbfxzxyu";
 
-             // Configuración del servidor SMTP
-             Properties props = new Properties();
-             props.put("mail.smtp.host", "smtp.gmail.com"); // Cambia esto según tu proveedor
-             props.put("mail.smtp.port", "587");
-             props.put("mail.smtp.auth", "true");
-             props.put("mail.smtp.starttls.enable", "true");
+	        // Configuración del servidor SMTP
+	        Properties props = new Properties();
+	        props.put("mail.smtp.host", "smtp.gmail.com");
+	        props.put("mail.smtp.port", "587");
+	        props.put("mail.smtp.auth", "true");
+	        props.put("mail.smtp.starttls.enable", "true");
 
-             // Autenticación
-             Session session = Session.getInstance(props, new Authenticator() {
-                 protected PasswordAuthentication getPasswordAuthentication() {
-                     return new PasswordAuthentication(remitente, password);
-                 }
-             });
-            // Crear el mensaje
-            Message message = new MimeMessage(session);
-            message.setFrom(new InternetAddress(remitente));
-          //  message.addRecipient(Message.RecipientType.TO, new InternetAddress(destinatario)); // Quitar despues
-            message.addRecipient(Message.RecipientType.TO, new InternetAddress(remitente));
-            message.addRecipient(Message.RecipientType.BCC, new InternetAddress("mariana.arroyave@comfenalcoantioquia.com "));
+	        // Autenticación
+	        Session session = Session.getInstance(props, new Authenticator() {
+	            protected PasswordAuthentication getPasswordAuthentication() {
+	                return new PasswordAuthentication(remitente, password);
+	            }
+	        });
+
+	        // Crear el mensaje
+	        Message message = new MimeMessage(session);
+	        message.setFrom(new InternetAddress(remitente));
+	        //message.addRecipient(Message.RecipientType.TO, new InternetAddress(destinatario));
+	        message.addRecipient(Message.RecipientType.TO, new InternetAddress(remitente));
+	        message.addRecipient(Message.RecipientType.BCC, new InternetAddress("mariana.arroyave@comfenalcoantioquia.com "));
             message.addRecipient(Message.RecipientType.BCC, new InternetAddress("diego.cadavid@comfenalcoantioquia.com"));
-            message.addRecipient(Message.RecipientType.BCC, new InternetAddress("manuela.marin@comfenalcoantioquia.com"));
-            message.setSubject(asunto);
+            message.addRecipient(Message.RecipientType.BCC, new InternetAddress("manuela.marin@comfenalcoantioquia.com")); 
+	        message.setSubject(asunto);
 
-            // Parte HTML
-            MimeBodyPart cuerpoHTML = new MimeBodyPart();
-            cuerpoHTML.setContent(htmlCuerpo, "text/html; charset=utf-8");
+	        // Parte HTML
+	        MimeBodyPart cuerpoHTML = new MimeBodyPart();
+	        cuerpoHTML.setContent(htmlCuerpo, "text/html; charset=utf-8");
 
-            // Parte adjunto
-            MimeBodyPart adjunto = new MimeBodyPart();
-            adjunto.attachFile(archivoAdjunto);
+	        Multipart multipart = new MimeMultipart();
+	        multipart.addBodyPart(cuerpoHTML);
 
-            // Contenedor Multipart
-            Multipart multipart = new MimeMultipart();
-            multipart.addBodyPart(cuerpoHTML);
-            multipart.addBodyPart(adjunto);
+	        // Verificar si se debe adjuntar un archivo
+	        if (archivoAdjunto != null && archivoAdjunto.exists() && archivoAdjunto.isFile()) {
+	            MimeBodyPart adjunto = new MimeBodyPart();
+	            adjunto.attachFile(archivoAdjunto);
+	            multipart.addBodyPart(adjunto);
+	        } else if (archivoAdjunto != null) {
+	            System.out.println("El archivo no existe o no es válido: " + archivoAdjunto.getAbsolutePath());
+	        }
 
-            message.setContent(multipart);
+	        message.setContent(multipart);
 
-            // Enviar
-            Transport.send(message);
-            System.out.println("Correo enviado correctamente.");
+	        // Enviar
+	        Transport.send(message);
+	        System.out.println("Correo enviado correctamente.");
 
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
+	}
+
 	
 	public String generarCuerpoCorreo(FormularioPremiosDTO dto) {
 	    StringBuilder html = new StringBuilder();
