@@ -1,13 +1,10 @@
-package com.siscomputo.FormPI2025.config;
-
-import javax.activation.DataHandler;
-import javax.activation.DataSource;
-import javax.activation.FileDataSource;
-import javax.mail.*;
-import javax.mail.internet.*;
+package com.siscomputo.FormPI2025.service;
 
 import java.io.File;
 import java.util.Properties;
+
+import javax.mail.*;
+import javax.mail.internet.*;
 
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
@@ -17,12 +14,11 @@ import com.siscomputo.FormPI2025.DTO.FormularioPremiosDTO;
 @Service
 @Component
 public class EmailSender {
-	
 	public void enviarCorreoConAdjunto(String destinatario, String asunto, String htmlCuerpo, File archivoAdjunto) {
 	    try {
 	        System.out.println("destinatario: " + destinatario);
 	        String remitente = "siadocp@gmail.com";
-	        String password = "qcjalnqsrbfxzxyu";
+	        String password = "qcjalnqsrbfxzxyu"; // Cambia esta contraseña a través de un sistema seguro
 
 	        // Configuración del servidor SMTP
 	        Properties props = new Properties();
@@ -41,27 +37,25 @@ public class EmailSender {
 	        // Crear el mensaje
 	        Message message = new MimeMessage(session);
 	        message.setFrom(new InternetAddress(remitente));
-	        //message.addRecipient(Message.RecipientType.TO, new InternetAddress(destinatario));
-	        message.addRecipient(Message.RecipientType.TO, new InternetAddress(remitente));
-	        message.addRecipient(Message.RecipientType.BCC, new InternetAddress("mariana.arroyave@comfenalcoantioquia.com "));
-            message.addRecipient(Message.RecipientType.BCC, new InternetAddress("diego.cadavid@comfenalcoantioquia.com"));
-            message.addRecipient(Message.RecipientType.BCC, new InternetAddress("manuela.marin@comfenalcoantioquia.com")); 
+	        message.addRecipient(Message.RecipientType.TO, new InternetAddress(remitente)); // Temporal
+
 	        message.setSubject(asunto);
 
 	        // Parte HTML
 	        MimeBodyPart cuerpoHTML = new MimeBodyPart();
 	        cuerpoHTML.setContent(htmlCuerpo, "text/html; charset=utf-8");
 
+	        // Contenedor Multipart
 	        Multipart multipart = new MimeMultipart();
 	        multipart.addBodyPart(cuerpoHTML);
 
-	        // Verificar si se debe adjuntar un archivo
+	        // Adjuntar archivo solo si es válido
 	        if (archivoAdjunto != null && archivoAdjunto.exists() && archivoAdjunto.isFile()) {
 	            MimeBodyPart adjunto = new MimeBodyPart();
 	            adjunto.attachFile(archivoAdjunto);
 	            multipart.addBodyPart(adjunto);
-	        } else if (archivoAdjunto != null) {
-	            System.out.println("El archivo no existe o no es válido: " + archivoAdjunto.getAbsolutePath());
+	        } else {
+	            System.out.println("Archivo adjunto no válido. El correo se enviará sin adjunto.");
 	        }
 
 	        message.setContent(multipart);
@@ -69,12 +63,10 @@ public class EmailSender {
 	        // Enviar
 	        Transport.send(message);
 	        System.out.println("Correo enviado correctamente.");
-
 	    } catch (Exception e) {
 	        e.printStackTrace();
 	    }
 	}
-
 	
 	public String generarCuerpoCorreo(FormularioPremiosDTO dto) {
 	    StringBuilder html = new StringBuilder();
@@ -107,12 +99,12 @@ public class EmailSender {
 	    html.append("<p><strong>Desea recibir comunicaciones:</strong> ").append(nullToEmpty(dto.getComunicaciones())).append("</p>");
 	    html.append("</div>");
 
-	    html.append("<!--<div class='section'>");
+	    html.append("<div class='section'>");
 	    html.append("<h3>Datos de contacto</h3>");
 	    html.append("<p><strong>Nombre completo:</strong> ").append(nullToEmpty(dto.getNombreCompletoPersona())).append("</p>");
 	    html.append("<p><strong>Teléfono:</strong> ").append(nullToEmpty(dto.getNumeroContacto())).append("</p>");
 	    html.append("<p><strong>Correo electrónico:</strong> ").append(nullToEmpty(dto.getCorreoElectronico())).append("</p>");
-	    html.append("</div>-->");
+	    html.append("</div>");
 
 	    html.append("<div class='section'>");
 	    html.append("<h3>Categoría y Grupos Poblacionales</h3>");
