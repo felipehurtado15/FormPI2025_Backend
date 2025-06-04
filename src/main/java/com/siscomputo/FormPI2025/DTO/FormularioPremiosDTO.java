@@ -18,6 +18,7 @@ public class FormularioPremiosDTO {
 	    private String otroSector;
 	    private String tamanioOrganizacion;
 	    private String municipio;
+	    private String otroMunicipio;
 
 	    private String afiliado; // SI / NO
 	    private String comunicaciones; // SI / NO
@@ -613,6 +614,14 @@ public class FormularioPremiosDTO {
 			return datos;
 		}
 		
+		public String getOtroMunicipio() {
+			return otroMunicipio;
+		}
+
+		public void setOtroMunicipio(String otroMunicipio) {
+			this.otroMunicipio = otroMunicipio;
+		}
+
 		// Opciones en la pregunta 12 RV
 		public String obtenerGruposSeleccionados() {
 		    List<String> grupos = new ArrayList<>();

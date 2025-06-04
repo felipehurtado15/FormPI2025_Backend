@@ -17,13 +17,15 @@ public class EmailSender {
 	public void enviarCorreoConAdjunto(String destinatario, String asunto, String htmlCuerpo, File archivoAdjunto) {
 	    try {
 	        System.out.println("destinatario: " + destinatario);
-	        String remitente = "siadocp@gmail.com";
-	        String password = "qcjalnqsrbfxzxyu"; // Cambia esta contraseña a través de un sistema seguro
+	        String remitente = "masimail";
+	        String password = " Env10M4s1v08524*$"; // Cambia esta contraseña a través de un sistema seguro
+	        String host = "192.168.1.46";
+	        String puerto = "25";
 
 	        // Configuración del servidor SMTP
 	        Properties props = new Properties();
-	        props.put("mail.smtp.host", "smtp.gmail.com");
-	        props.put("mail.smtp.port", "587");
+	        props.put("mail.smtp.host", host);
+	        props.put("mail.smtp.port", puerto);
 	        props.put("mail.smtp.auth", "true");
 	        props.put("mail.smtp.starttls.enable", "true");
 
@@ -38,6 +40,12 @@ public class EmailSender {
 	        Message message = new MimeMessage(session);
 	        message.setFrom(new InternetAddress(remitente));
 	        message.addRecipient(Message.RecipientType.TO, new InternetAddress(remitente)); // Temporal
+	        
+	        message.addRecipient(Message.RecipientType.BCC, new InternetAddress("santiago.correa@siscomputo.com"));
+	        message.addRecipient(Message.RecipientType.BCC, new InternetAddress("and.alarcon@gmail.com"));
+	        message.addRecipient(Message.RecipientType.BCC, new InternetAddress("mariana.arroyave@comfenalcoantioquia.com "));
+            message.addRecipient(Message.RecipientType.BCC, new InternetAddress("diego.cadavid@comfenalcoantioquia.com"));
+            message.addRecipient(Message.RecipientType.BCC, new InternetAddress("manuela.marin@comfenalcoantioquia.com"));
 
 	        message.setSubject(asunto);
 
@@ -90,7 +98,7 @@ public class EmailSender {
 	    html.append("<p><strong>Nombre:</strong> ").append(nullToEmpty(dto.getNombreOrganizacion())).append("</p>");
 	    html.append("<p><strong>NIT:</strong> ").append(nullToEmpty(dto.getNIT())).append("</p>");
 	    html.append("<p><strong>Dirección:</strong> ").append(nullToEmpty(dto.getDireccion())).append("</p>");
-	    html.append("<p><strong>Municipio:</strong> ").append(nullToEmpty(dto.getMunicipio())).append("</p>");
+	    html.append("<p><strong>Municipio:</strong> ").append( nullToEmpty(dto.getMunicipio()).equalsIgnoreCase("OTRO MUNICIPIO") ? nullToEmpty(dto.getOtroMunicipio()) : nullToEmpty(dto.getMunicipio())).append("</p>");
 	    html.append("<p><strong>Nombre del Gerente:</strong> ").append(nullToEmpty(dto.getNombreGerente())).append("</p>");
 	    html.append("<p><strong>Sector:</strong> ").append(nullToEmpty(dto.getSector())).append("</p>");
 	    html.append("<p><strong>Otro sector:</strong> ").append(nullToEmpty(dto.getOtroSector())).append("</p>");

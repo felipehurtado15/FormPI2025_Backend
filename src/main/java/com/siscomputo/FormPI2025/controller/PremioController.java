@@ -28,9 +28,6 @@ import org.springframework.web.multipart.MultipartFile;
 import static org.apache.commons.compress.utils.FileNameUtils.getExtension;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
-import org.springframework.http.MediaType;
-
-import com.siscomputo.FormPI2025.DTO.DatosForm;
 import com.siscomputo.FormPI2025.DTO.FileInfo;
 import com.siscomputo.FormPI2025.DTO.FormularioPremiosDTO;
 import com.siscomputo.FormPI2025.service.EmailSender;
@@ -40,7 +37,7 @@ import com.siscomputo.FormPI2025.service.FileService;
 @RequestMapping("/api/public/premios")
 public class PremioController {
 	
-	private static final String UPLOAD_DIR = "D:/imagenes/formularios/"; 
+	private static final String UPLOAD_DIR = "/logs/premios/"; 
 	
 	private EmailSender emailSender;
 	private FileService fileService;
@@ -50,6 +47,12 @@ public class PremioController {
 		this.emailSender = emailSender;
 		this.fileService = fileService;
 	}
+	
+	@GetMapping("/uuid")
+    public ResponseEntity<String> generarUuid() {
+        String uuid = UUID.randomUUID().toString();
+        return ResponseEntity.ok(uuid);
+    }
 	
 	 @GetMapping("/listar")
 	    public ResponseEntity<List<FileInfo>> listarArchivos() {
@@ -67,6 +70,8 @@ public class PremioController {
 	public ResponseEntity<?> procesarFormulario(
 	        @RequestPart("form") FormularioPremiosDTO form,
 	        @RequestPart(value = "file", required = false) MultipartFile file) {
+		Map<String, Object> response = new HashMap<>();
+	    
 	    try {
 	    	
 	        // Aquí puedes manejar el formulario y el archivo
@@ -121,12 +126,15 @@ public class PremioController {
 	     				e.printStackTrace();
 	     			}
 	        
+	     			response.put("mensaje", "Formulario procesado correctamente");
+	     			response.put("ok",true);
 	        
-	        
-	        return ResponseEntity.ok("Formulario procesado correctamente");
+	        return ResponseEntity.ok(response);
 	    } catch (Exception e) {
 	    	e.printStackTrace();
-	        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error: " + e.getMessage());
+	    	response.put("mensaje", "Error: " + e.getMessage());
+ 			response.put("ok",false);
+	        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
 	    }
 	}
 	
@@ -149,7 +157,7 @@ public class PremioController {
 	private String csvFromFormWithFilename(FormularioPremiosDTO form, String nombreArchivo) {
 		return String.join(",", nullToEmpty(form.getNombreOrganizacion()), nullToEmpty(form.getNIT()),
 				nullToEmpty(form.getDireccion()), nullToEmpty(form.getNombreGerente()), nullToEmpty(form.getSector()),
-				nullToEmpty(form.getTamanioOrganizacion()), nullToEmpty(form.getMunicipio()),
+				nullToEmpty(form.getTamanioOrganizacion()), nullToEmpty(form.getMunicipio()).equalsIgnoreCase("OTRO MUNICIPIO") ? nullToEmpty(form.getOtroMunicipio()) : nullToEmpty(form.getMunicipio()) ,
 				nullToEmpty(form.getCorreoElectronico()),
 				// Nuevos campos
 				nullToEmpty(form.getAfiliado()), nullToEmpty(form.getComunicaciones()),
