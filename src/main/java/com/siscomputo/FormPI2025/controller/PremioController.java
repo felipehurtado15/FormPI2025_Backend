@@ -192,7 +192,7 @@ public class PremioController {
 				+ "reconocida,detalleReconocimiento,nombrePractica,razonesInclusion,practicasInclusion,"
 				+ "practicasInclusivas,tiempoEstrategia,documentada,accionesPermanencia,principalesLogros,"
 				+ "nombrePostula,numeroContactoPostulante,correoPostulacion,cargoPostulacion,urlVideo,urlDrive,"
-				+ "datos,nombreArchivo,11- RB,12- RB,13- RB,14- RB,15- RB,16- RB,17- RB,18- RB,19- RB,20- RB,21- RB,"; // Columna																											// del
+				+ "datos,nombreArchivo,DimensionDeBienestar,GruposAcompañados,PersonasImpactadas,RazonesDeLaEstrategia,NombreDeLaPractica,DescripcionDeLaPractica,TiempoDeImplementacion,PracticaDocumentada,AccionesParaElImpacto,PrincipalesLogros,ReconocimientoEnBienestar,"; // Columna																											// del
 																														// archivo
 	}
 
