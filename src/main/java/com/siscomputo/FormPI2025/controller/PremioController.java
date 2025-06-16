@@ -160,12 +160,17 @@ public class PremioController {
 				nullToEmpty(form.getDireccion()),
 				nullToEmpty(form.getAreaComunicaciones()),
 				nullToEmpty(form.getUsoServicios()),
-				nullToEmpty(form.getOrganizacionAfiliada())
+				nullToEmpty(form.getOrganizacionAfiliada()),
+				nullToEmpty(form.getCategoriasParticipar()),
+				nullToEmpty(form.getRazonesMotivan()),
+				nullToEmpty(form.getContrataGP()),
+				nullToEmpty(form.getNumpersonasGP())		
+				
 			  );
 	}
 	
 	private String csvHeader() {
-		return "nombreOrganizacion,nit,direccion,areaComunicaciones,usoServicios,organizacionAfiliada"; // Columna																											// del
+		return "nombreOrganizacion,nit,direccion,areaComunicaciones,usoServicios,organizacionAfiliada,categoriasParticipar,razonesMotivan,contrataGP,numpersonasGP"; // Columna																											// del
 																														// archivo
 	}
 

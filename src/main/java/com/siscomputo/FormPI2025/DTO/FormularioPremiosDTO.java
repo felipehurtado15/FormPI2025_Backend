@@ -9,8 +9,11 @@ public class FormularioPremiosDTO {
 	private String organizacionAfiliada;
 	private String usoServicios;
 	private String areaComunicaciones;
+	private String categoriasParticipar;
+	private String razonesMotivan;
+	private String contrataGP;
+	private String numpersonasGP;
 	
-
 	public String getNombreOrganizacion() {
 		return nombreOrganizacion;
 	}
@@ -59,5 +62,54 @@ public class FormularioPremiosDTO {
 	public void setAreaComunicaciones(String areaComunicaciones) {
 		this.areaComunicaciones = areaComunicaciones;
 	}
+
+	public String getCategoriasParticipar() {
+		return categoriasParticipar;
+	}
+
+	public void setCategoriasParticipar(String categoriasParticipar) {
+		this.categoriasParticipar = categoriasParticipar;
+	}
+
+	public String getRazonesMotivan() {
+		return razonesMotivan;
+	}
+
+	public void setRazonesMotivan(String razonesMotivan) {
+		this.razonesMotivan = razonesMotivan;
+	}
+
+	public String getContrataGP() {
+		return contrataGP;
+	}
+
+	public void setContrataGP(String contrataGP) {
+		this.contrataGP = contrataGP;
+	}
+
+	public String getNumpersonasGP() {
+		return numpersonasGP;
+	}
+
+	public void setNumpersonasGP(String numpersonasGP) {
+		this.numpersonasGP = numpersonasGP;
+	}
+
+	@Override
+	public String toString() {
+		return "FormularioPremiosDTO [nombreOrganizacion=" + nombreOrganizacion + ", nit=" + nit + ", direccion="
+				+ direccion + ", organizacionAfiliada=" + organizacionAfiliada + ", usoServicios=" + usoServicios
+				+ ", areaComunicaciones=" + areaComunicaciones + ", categoriasParticipar=" + categoriasParticipar
+				+ ", razonesMotivan=" + razonesMotivan + ", contrataGP=" + contrataGP + ", numpersonasGP="
+				+ numpersonasGP + ", getNombreOrganizacion()=" + getNombreOrganizacion() + ", getNit()=" + getNit()
+				+ ", getDireccion()=" + getDireccion() + ", getOrganizacionAfiliada()=" + getOrganizacionAfiliada()
+				+ ", getUsoServicios()=" + getUsoServicios() + ", getAreaComunicaciones()=" + getAreaComunicaciones()
+				+ ", getCategoriasParticipar()=" + getCategoriasParticipar() + ", getRazonesMotivan()="
+				+ getRazonesMotivan() + ", getContrataGP()=" + getContrataGP() + ", getNumpersonasGP()="
+				+ getNumpersonasGP() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()="
+				+ super.toString() + "]";
+	}
+	
+	
 	
 }
