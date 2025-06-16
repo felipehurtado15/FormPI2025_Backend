@@ -111,7 +111,7 @@ public class EmailSender {
 	public String generarCuerpoCorreo(FormularioPremiosDTO dto) {
 		StringBuilder html = new StringBuilder();
 
-		html.append("<html><head>");
+	/*	html.append("<html><head>");
 		html.append("<style>");
 		html.append("body { font-family: Arial, sans-serif; background-color: #f9f9f9; color: #333; margin: 20px; }");
 		html.append("h2 { color: #005740; border-bottom: 2px solid #005740; padding-bottom: 5px; }");
@@ -258,7 +258,7 @@ public class EmailSender {
 				.append(nullToEmpty(dto.getDetalleReconocimientoBienestar())).append("</p>");
 		html.append("</div>");
 
-		html.append("</body></html>");
+		html.append("</body></html>"); */
 
 		return html.toString();
 	}

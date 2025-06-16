@@ -68,34 +68,33 @@ public class PremioController {
 	
 	@PostMapping(value = "/enviarFormulario", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
 	public ResponseEntity<?> procesarFormulario(
-	        @RequestPart("form") FormularioPremiosDTO form,
-	        @RequestPart(value = "file", required = false) MultipartFile file) {
+	        @RequestPart("form") FormularioPremiosDTO form) {
 		Map<String, Object> response = new HashMap<>();
 	    
 	    try {
 	    	
 	        // Aquí puedes manejar el formulario y el archivo
-	        form.setFile(file);
+	       // form.setFile(file);
 	        // Procesar el formulario...
 	     // 1. Guardar el archivo subido
 	     			String fecha = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
 	     			String hash = UUID.randomUUID().toString().replace("-", "").substring(0, 6);
 	     			String nombreBase = "formularioPI_Master_2025";
 
-	     			// 2. Guardar archivo subido con nombre único (hash)
-	     			MultipartFile archivo = form.getFile();
 	     			String archivoNombreConHash = hash + "_" + fecha;
+	     			// 2. Guardar archivo subido con nombre único (hash)
+	     			/*MultipartFile archivo = form.getFile();
 	     			String nombreArchivo = "";
 	     			if (archivo != null && !archivo.isEmpty()) {
 	     				String extension = getExtension(archivo.getOriginalFilename());
 	     				System.out.println(form.toString());
-	     				System.out.println(form.getNIT());
-	     				nombreArchivo = form.getNIT().replaceAll("[^0-9.]", "") + "_" + archivoNombreConHash + "."
+	     				System.out.println(form.getNit());
+	     				nombreArchivo = form.getNit().replaceAll("[^0-9.]", "") + "_" + archivoNombreConHash + "."
 	     						+ extension;
 	     				archivoNombreConHash = nombreArchivo;
 	     				Path rutaArchivo = Paths.get(UPLOAD_DIR + nombreArchivo);
 	     				Files.copy(archivo.getInputStream(), rutaArchivo, StandardCopyOption.REPLACE_EXISTING);
-	     			}
+	     			} */
 
 	     			// 3. Guardar CSV con los datos del formulario y nombre del archivo
 	     			String nombreCSV = nombreBase + ".csv"; // Archivo CSV con nombre único
@@ -121,7 +120,7 @@ public class PremioController {
 	     			// Enviar correo
 	     			try {
 	     				String htmlCuerpo= emailSender.generarCuerpoCorreo(form);
-	     				emailSender.enviarCorreoConAdjunto(form.getCorreoPostulacion().trim(), "Formulario Premios Inclusión 2025", htmlCuerpo,  new File(UPLOAD_DIR + nombreArchivo));
+	     				//emailSender.enviarCorreoConAdjunto(form.getCorreoPostulacion().trim(), "Formulario Premios Inclusión 2025", htmlCuerpo,  new File(UPLOAD_DIR + nombreArchivo));
 	     			} catch (Exception e) {
 	     				e.printStackTrace();
 	     			}
@@ -155,44 +154,18 @@ public class PremioController {
     }
 	
 	private String csvFromFormWithFilename(FormularioPremiosDTO form, String nombreArchivo) {
-		return String.join(",", nullToEmpty(form.getNombreOrganizacion()), nullToEmpty(form.getNIT()),
-				nullToEmpty(form.getDireccion()), nullToEmpty(form.getNombreGerente()), nullToEmpty(form.getSector()),
-				nullToEmpty(form.getTamanioOrganizacion()), nullToEmpty(form.getMunicipio()).equalsIgnoreCase("OTRO MUNICIPIO") ? nullToEmpty(form.getOtroMunicipio()) : nullToEmpty(form.getMunicipio()) ,
-				nullToEmpty(form.getCorreoElectronico()),
-				// Nuevos campos
-				nullToEmpty(form.getAfiliado()), nullToEmpty(form.getComunicaciones()),
-				nullToEmpty(form.getNombreCompletoPersona()), nullToEmpty(form.getNumeroContacto()),
-				nullToEmpty(form.getCategoria()),
-				// Grupos poblacionales
-				booleanToString(form.isConflicto()), booleanToString(form.isDiscapacidad()),
-				booleanToString(form.isMujeres()), booleanToString(form.isJovenes()),
-				booleanToString(form.isMigrantes()), booleanToString(form.isLgbtiq()),
-				booleanToString(form.isOtroGrupo()), nullToEmpty(form.getOtroGrupoTexto()),
-				integerToString(form.getNumPersonasIncluidas()), nullToEmpty(form.getReconocida()),
-				nullToEmpty(form.getDetalleReconocimiento()), nullToEmpty(form.getNombrePractica()),
-				nullToEmpty(form.getRazonesInclusion()), nullToEmpty(form.getPracticasInclusion()),
-				nullToEmpty(form.getPracticasInclusivas()), nullToEmpty(form.getTiempoEstrategia()),
-				nullToEmpty(form.getDocumentada()), nullToEmpty(form.getAccionesPermanencia()),
-				nullToEmpty(form.getPrincipalesLogros()), nullToEmpty(form.getNombrePostula()),
-				nullToEmpty(form.getNumeroContactoPostulante()), nullToEmpty(form.getCorreoPostulacion()),
-				nullToEmpty(form.getCargoPostulacion()), nullToEmpty(form.getUrlVideo()),
-				nullToEmpty(form.getUrlDrive()), booleanToString(form.isDatos()), nombreArchivo,
-				nullToEmpty(form.getDimensionBienestar()), nullToEmpty(form.getOtroGrupoBienestarTexto()),
-				nullToEmpty(form.getImpactoPersonas()), nullToEmpty(form.getRazonesBienestar()),
-				nullToEmpty(form.getNombreEstrategiaBienestar()), nullToEmpty(form.getDescripcionEstrategia()),
-				nullToEmpty(form.getTiempoYArticulacion()), nullToEmpty(form.getDocumentadaBienestar()),
-				nullToEmpty(form.getAccionesImpacto()), nullToEmpty(form.getLogrosBienestar()),
-				nullToEmpty(form.obtenerReconocimientoBienestar()));
+		return String.join(",",
+				nullToEmpty(form.getNombreOrganizacion()), 
+				nullToEmpty(form.getNit()),
+				nullToEmpty(form.getDireccion()),
+				nullToEmpty(form.getAreaComunicaciones()),
+				nullToEmpty(form.getUsoServicios()),
+				nullToEmpty(form.getOrganizacionAfiliada())
+			  );
 	}
 	
 	private String csvHeader() {
-		return "nombreOrganizacion,NIT,direccion,nombreGerente,sector,tamanioOrganizacion,municipio,correoElectronico,"
-				+ "afiliado,comunicaciones,nombreCompletoPersona,numeroContacto,categoria,"
-				+ "conflicto,discapacidad,mujeres,jovenes,migrantes,lgbtiq,otroGrupo,otroGrupoTexto,numPersonasIncluidas,"
-				+ "reconocida,detalleReconocimiento,nombrePractica,razonesInclusion,practicasInclusion,"
-				+ "practicasInclusivas,tiempoEstrategia,documentada,accionesPermanencia,principalesLogros,"
-				+ "nombrePostula,numeroContactoPostulante,correoPostulacion,cargoPostulacion,urlVideo,urlDrive,"
-				+ "datos,nombreArchivo,DimensionDeBienestar,GruposAcompañados,PersonasImpactadas,RazonesDeLaEstrategia,NombreDeLaPractica,DescripcionDeLaPractica,TiempoDeImplementacion,PracticaDocumentada,AccionesParaElImpacto,PrincipalesLogros,ReconocimientoEnBienestar,"; // Columna																											// del
+		return "nombreOrganizacion,nit,direccion,areaComunicaciones,usoServicios,organizacionAfiliada"; // Columna																											// del
 																														// archivo
 	}
 
