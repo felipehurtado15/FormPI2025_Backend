@@ -51,7 +51,7 @@ public class PremioController {
 	@GetMapping("/uuid")
     public ResponseEntity<String> generarUuid() {
         String uuid = UUID.randomUUID().toString();
-        return ResponseEntity.ok(uuid);
+        return ResponseEntity.ok(uuid);  
     }
 	
 	 @GetMapping("/listar")
