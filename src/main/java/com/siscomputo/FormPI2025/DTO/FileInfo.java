@@ -6,18 +6,24 @@ public class FileInfo {
 	    private String nit;
 	    private String organizacion;
 	    private String postulante;
+	    private String direccion;
 
 	    public FileInfo() {}
+	    
+	 
+	    public String getDireccion() {
+			return direccion;
+		}
 
-	    public FileInfo(String nombre, String fechaCreacion, String nit, String organizacion, String postulante) {
-	        this.nombre = nombre;
-	        this.fechaCreacion = fechaCreacion;
-	        this.nit = nit;
-	        this.organizacion = organizacion;
-	        this.postulante = postulante;
-	    }
 
-	    // Getters y Setters
+		public void setDireccion(String direccion) {
+			this.direccion = direccion;
+		}
+
+
+
+
+		// Getters y Setters
 	    public String getNombre() {
 	        return nombre;
 	    }

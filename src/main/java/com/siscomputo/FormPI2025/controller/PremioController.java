@@ -79,7 +79,7 @@ public class PremioController {
 	     // 1. Guardar el archivo subido
 	     			String fecha = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
 	     			String hash = UUID.randomUUID().toString().replace("-", "").substring(0, 6);
-	     			String nombreBase = "formularioPI_Master_2025";
+	     			String nombreBase = "generacionesPI_Master_2025";
 
 	     			String archivoNombreConHash = hash + "_" + fecha;
 	     			// 2. Guardar archivo subido con nombre único (hash)

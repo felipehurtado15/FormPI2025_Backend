@@ -26,7 +26,7 @@ import com.siscomputo.FormPI2025.DTO.FileInfo;
 public class FileService {
 
 	public List<FileInfo> obtenerArchivos(String UPLOAD_DIR) throws IOException {
-		String nombreBase = "formularioPI_Master_2025";
+		String nombreBase = "generacionesPI_Master_2025";
 		String nombreCSV = nombreBase + ".csv";
 		Path rutaCSV = Paths.get(UPLOAD_DIR + nombreCSV);
 		List<FileInfo> archivos = new ArrayList<>();
@@ -38,11 +38,12 @@ public class FileService {
 		if (Files.exists(rutaCSV) && Files.isRegularFile(rutaCSV)) {
 			BasicFileAttributes attrs = Files.readAttributes(rutaCSV, BasicFileAttributes.class);
 			String fechaCSV = sdf.format(attrs.creationTime().toMillis());
-
-			archivos.add(new FileInfo(nombreCSV, fechaCSV, "", // NIT
-					"Archivo maestro", // Organización
-					"CSV principal" // Postulante
-			));
+			FileInfo principal = new FileInfo();
+			principal.setNombre(nombreCSV);
+			principal.setFechaCreacion(fechaCSV);
+			principal.setNit("");
+			principal.setNombre(nombreCSV);
+			archivos.add(principal);
 		}
 
 		// Leer el contenido del CSV
@@ -57,38 +58,20 @@ public class FileService {
 				}
 
 				String[] columnas = linea.split(separador);
-				if (columnas.length < 40)
-					continue;
-
+				
 				String organizacion = columnas[0];
 				String nit = columnas[1];
-				String postulante = columnas[32];
-				String nombreArchivoBuscado = columnas[39];
-
-				Path archivoPath = Paths.get(UPLOAD_DIR + nombreArchivoBuscado);
+				String direccion = columnas[2];
 				String fechaCreacion = "";
-
-				if (Files.exists(archivoPath) && Files.isRegularFile(archivoPath)) {
-					BasicFileAttributes attrs = Files.readAttributes(archivoPath, BasicFileAttributes.class);
-					fechaCreacion = sdf.format(attrs.creationTime().toMillis());
-				} else {
-					// Extraer fecha del nombre
-					String[] partes = nombreArchivoBuscado.split("_");
-					if (partes.length > 1) {
-						String fechaStr = partes[1];
-						if (fechaStr.matches("\\d{14}")) {
-							try {
-								SimpleDateFormat entrada = new SimpleDateFormat("yyyyMMddHHmmss");
-								Date fecha = entrada.parse(fechaStr);
-								fechaCreacion = sdf.format(fecha);
-							} catch (ParseException e) {
-								fechaCreacion = "";
-							}
-						}
-					}
-				}
-
-				archivos.add(new FileInfo(nombreArchivoBuscado, fechaCreacion, nit, organizacion, postulante));
+				
+				FileInfo info = new FileInfo();
+				info.setFechaCreacion(fechaCreacion);
+				info.setOrganizacion(organizacion);
+				info.setNit(nit);
+				info.setDireccion(direccion);
+				info.setNombre("");
+				
+				archivos.add(info);
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
