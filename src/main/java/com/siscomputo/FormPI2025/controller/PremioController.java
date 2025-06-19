@@ -57,7 +57,7 @@ public class PremioController {
 	 @GetMapping("/listar")
 	    public ResponseEntity<List<FileInfo>> listarArchivos() {
 	        try {
-	            List<FileInfo> archivos = fileService.obtenerArchivos(UPLOAD_DIR);
+	            List<FileInfo> archivos = fileService.obtenerArchivosConOpenCSV(UPLOAD_DIR);
 	            return ResponseEntity.ok(archivos);
 	        } catch (Exception e) {
 	            e.printStackTrace();
