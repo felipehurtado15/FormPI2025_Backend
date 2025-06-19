@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import com.siscomputo.FormPI2025.DTO.FormularioPremiosDTO;
 
+
 @Service
 @Component
 public class EmailSender {
@@ -20,15 +21,15 @@ public class EmailSender {
 		MimeMessage message = null;
 		try {
 			System.out.println("destinatario: " + destinatario);
-			/*String remitente = "masimail";
+			String remitente = "info@comfenalcoantioquia.com";
 			String password = "Env10M4s1v08524*$"; // Cambia esta contraseña a través de un sistema seguro
 			String host = "192.168.1.46";
-			String puerto = "25"; */
+			String puerto = "25"; 
 			
-			String remitente = "landing.premios.2025@gmail.com";
+			/*String remitente = "landing.premios.2025@gmail.com";
 			String password = "kzdpraedtxakvgho"; // Cambia esta contraseña a través de un sistema seguro
 			String host = "smtp.gmail.com";
-			String puerto = "587";
+			String puerto = "587"; */
 
 			// Configuración del servidor SMTP
 			Properties props = new Properties();

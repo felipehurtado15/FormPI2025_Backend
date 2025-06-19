@@ -198,7 +198,8 @@ public class PremioController {
 
 	private String nullToEmpty(String value) {
 		String rta = value != null ? value : "";
-		return rta.replace(",", " ");
+		rta = rta.replace(",", " ");
+		return rta.replaceAll("\\r?\\n|\\r", " ");
 	}
 
 	private String booleanToString(Boolean value) {
