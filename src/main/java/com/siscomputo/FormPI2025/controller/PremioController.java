@@ -197,9 +197,25 @@ public class PremioController {
 	}
 
 	private String nullToEmpty(String value) {
-		String rta = value != null ? value : "";
-		rta = rta.replace(",", " ");
-		return rta.replaceAll("\\r?\\n|\\r", " ");
+	    if (value == null) return "";
+
+	    String cleaned = value;
+
+	    // Reemplazar coma por espacio
+	    cleaned = cleaned.replace(",", " ");
+
+	    // Eliminar guiones
+	    cleaned = cleaned.replace("-", "");
+
+	    // Reemplazar saltos de línea visibles
+	    cleaned = cleaned.replaceAll("\\r?\\n|\\r", " ");
+	    // Reemplazar comillas dobles por dos comillas dobles (para evitar que rompan el CSV)
+	    cleaned = cleaned.replace("\"", "\"\"");
+
+	    // Eliminar caracteres invisibles Unicode problemáticos
+	    cleaned = cleaned.replaceAll("[\\u2028\\u2029\\u0000]", "");
+
+	    return cleaned;
 	}
 
 	private String booleanToString(Boolean value) {
